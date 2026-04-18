@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+const API_URL = "https://el-s-hub.onrender.com";
 import { useAuth } from "../hooks/useAuth";
 import { useProducts } from "../hooks/useProducts";
 import "../styles/page-admin.css";
@@ -178,7 +178,7 @@ const AdminPage = () => {
 
   const testAPI = async () => {
     try {
-      const response = await fetch("/api/products/", {
+      const response = await fetch(`${API_URL}/api/products/`, {
         headers: getAuthHeaders(),
       });
       if (response.ok) {

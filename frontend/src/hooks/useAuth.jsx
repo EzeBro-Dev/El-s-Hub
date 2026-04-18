@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext, createContext } from "react";
 
-const AuthContext = createContext();
+const API_URL = "https://el-s-hub.onrender.com";
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
 
   const fetchProfile = async () => {
     try {
-      const response = await fetch("/api/auth/profile/", {
+      const response = await fetch(`${API_URL}/api/auth/profile/`, {
         headers: {
           ...jsonHeaders,
           Authorization: `Token ${token}`,
@@ -61,7 +61,7 @@ export const AuthProvider = ({ children }) => {
     last_name = "",
   ) => {
     try {
-      const response = await fetch("/api/auth/register/", {
+      const response = await fetch(`${API_URL}/api/auth/register/`, {
         method: "POST",
         headers: jsonHeaders,
         body: JSON.stringify({
@@ -91,7 +91,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await fetch("/api/auth/login/", {
+      const response = await fetch(`${API_URL}/api/auth/login/`, {
         method: "POST",
         headers: jsonHeaders,
         body: JSON.stringify({ username, password }),
@@ -115,7 +115,7 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     try {
       if (token) {
-        await fetch("/api/auth/logout/", {
+        await fetch(`${API_URL}/api/auth/logout/`, {
           method: "POST",
           headers: {
             ...jsonHeaders,
@@ -133,7 +133,7 @@ export const AuthProvider = ({ children }) => {
 
   const updateProfile = async (profileData) => {
     try {
-      const response = await fetch("/api/auth/profile/update/", {
+      const response = await fetch(`${API_URL}/api/auth/profile/update/`, {
         method: "PUT",
         headers: {
           ...jsonHeaders,
@@ -157,7 +157,7 @@ export const AuthProvider = ({ children }) => {
 
   const changePassword = async (oldPassword, newPassword, newPassword2) => {
     try {
-      const response = await fetch("/api/auth/change-password/", {
+      const response = await fetch(`${API_URL}/api/auth/change-password/`, {
         method: "POST",
         headers: {
           ...jsonHeaders,
