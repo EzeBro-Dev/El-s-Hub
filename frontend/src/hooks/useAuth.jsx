@@ -2,6 +2,8 @@ import { useState, useEffect, useContext, createContext } from "react";
 
 const API_URL = "https://el-s-hub.onrender.com";
 
+const AuthContext = createContext();
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem("authToken"));
