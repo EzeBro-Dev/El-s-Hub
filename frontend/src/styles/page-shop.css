@@ -1,0 +1,41 @@
+/* Shop Page */
+
+.sort-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.result-count {
+  color: var(--text-muted);
+  font-size: var(--font-size-small);
+  margin: 0;
+}
+
+.sort-select {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-radius: 0;
+  cursor: pointer;
+  font-size: var(--font-size-small);
+  transition: var(--transition);
+}
+
+.sort-select:hover,
+.sort-select:focus {
+  border-color: var(--text-primary);
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .sort-bar {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+  }
+}
